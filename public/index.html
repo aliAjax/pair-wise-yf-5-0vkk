@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>理赔查勘台</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">🚗 理赔查勘台</div>
+  <div class="top-actions">
+    <label class="field-inline">
+      查勘员
+      <select id="surveyor"></select>
+    </label>
+    <label class="switch">
+      <input type="checkbox" id="offlineToggle" />
+      <span class="slider"></span>
+      <span id="offlineLabel">在线</span>
+    </label>
+    <button id="syncBtn" class="btn primary">同步离线登记</button>
+    <span id="queueBadge" class="badge hidden"></span>
+    <span id="lastSync" class="muted small"></span>
+    <button id="resetBtn" class="btn ghost small">重置演示数据</button>
+  </div>
+</header>
+
+<nav class="tabs">
+  <button class="tab active" data-tab="dispatch">① 派单领取</button>
+  <button class="tab" data-tab="field">② 现场查勘（可离线）</button>
+  <button class="tab" data-tab="assess">③ 定损与流转</button>
+  <button class="tab" data-tab="ledger">④ 公司台账 / 保单</button>
+</nav>
+
+<main id="main"></main>
+
+<div id="toastHost"></div>
+
+<script src="app.js"></script>
+</body>
+</html>

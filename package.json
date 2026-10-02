@@ -1,0 +1,11 @@
+{
+  "name": "survey-console",
+  "version": "1.0.0",
+  "description": "理赔查勘台：抢单、离线查勘登记、联网合并、保单更新作废重算",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test test/"
+  },
+  "license": "MIT"
+}
