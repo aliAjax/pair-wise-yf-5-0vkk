@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>理赔查勘台</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- 登录/选择查勘员 -->
+  <div id="login-screen" class="screen">
+    <div class="login-card">
+      <div class="login-logo">🛰️</div>
+      <h1>理赔查勘台</h1>
+      <p class="login-sub">离线优先 · 现场查勘 · 台账同步</p>
+      <label class="field-label">选择查勘员身份</label>
+      <div id="user-list" class="user-list"></div>
+      <p class="login-hint">地下车库无信号也能登记，恢复网络自动同步</p>
+    </div>
+  </div>
+
+  <!-- 主界面 -->
+  <div id="app-screen" class="screen hidden">
+    <header class="topbar">
+      <div class="topbar-left">
+        <span class="logo">🛰️</span>
+        <span class="topbar-title">理赔查勘台</span>
+      </div>
+      <div class="topbar-right">
+        <span id="net-badge" class="net-badge online">在线</span>
+        <span id="sync-badge" class="sync-badge">已同步</span>
+        <span id="current-user" class="current-user"></span>
+        <button id="logout-btn" class="btn btn-ghost btn-sm">切换</button>
+      </div>
+    </header>
+
+    <nav class="tabs">
+      <button class="tab active" data-tab="cases">案件列表</button>
+      <button class="tab" data-tab="policies">保单管理</button>
+      <button class="tab" data-tab="sync">同步中心</button>
+    </nav>
+
+    <main class="main">
+      <!-- 案件列表 -->
+      <section id="tab-cases" class="tab-panel active">
+        <div class="panel-head">
+          <h2>案件列表</h2>
+          <button id="refresh-cases" class="btn btn-ghost btn-sm">刷新</button>
+        </div>
+        <div id="case-list" class="case-list"></div>
+      </section>
+
+      <!-- 保单管理 -->
+      <section id="tab-policies" class="tab-panel">
+        <div class="panel-head">
+          <h2>保单管理</h2>
+          <span class="hint">更新保单将自动作废并重算该保单项下的定损结论</span>
+        </div>
+        <div id="policy-list" class="policy-list"></div>
+      </section>
+
+      <!-- 同步中心 -->
+      <section id="tab-sync" class="tab-panel">
+        <div class="panel-head">
+          <h2>同步中心</h2>
+          <button id="sync-now" class="btn btn-primary btn-sm">立即同步</button>
+        </div>
+        <div id="sync-status" class="sync-status"></div>
+        <div id="sync-log" class="sync-log"></div>
+      </section>
+    </main>
+  </div>
+
+  <!-- 案件详情抽屉 -->
+  <div id="case-drawer" class="drawer hidden">
+    <div class="drawer-mask" id="drawer-mask"></div>
+    <div class="drawer-panel">
+      <div class="drawer-head">
+        <div>
+          <h2 id="drawer-title">案件详情</h2>
+          <span id="drawer-case-no" class="hint"></span>
+        </div>
+        <button id="drawer-close" class="btn btn-ghost btn-sm">关闭</button>
+      </div>
+      <div id="drawer-body" class="drawer-body"></div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="db.js"></script>
+  <script src="sync.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

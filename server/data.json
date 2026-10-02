@@ -1,0 +1,130 @@
+{
+  "users": [
+    {
+      "id": "u-zhangwei",
+      "name": "张伟",
+      "employee_no": "CL001"
+    },
+    {
+      "id": "u-lina",
+      "name": "李娜",
+      "employee_no": "CL002"
+    },
+    {
+      "id": "u-wangqiang",
+      "name": "王强",
+      "employee_no": "CL003"
+    }
+  ],
+  "policies": [
+    {
+      "id": "p-001",
+      "policy_number": "PICC20240001",
+      "holder_name": "张伟",
+      "vehicle_plate": "京A12345",
+      "coverage": {
+        "车损险": 100000,
+        "三者险": 500000,
+        "不计免赔": true
+      },
+      "version": 1,
+      "updated_at": "2026-09-01T09:00:00.000Z"
+    },
+    {
+      "id": "p-002",
+      "policy_number": "PICC20240002",
+      "holder_name": "李娜",
+      "vehicle_plate": "京B67890",
+      "coverage": {
+        "车损险": 80000,
+        "三者险": 300000,
+        "不计免赔": false
+      },
+      "version": 1,
+      "updated_at": "2026-09-01T09:00:00.000Z"
+    }
+  ],
+  "cases": [
+    {
+      "id": "c-001",
+      "case_number": "CAS20260928001",
+      "policy_id": "p-001",
+      "status": "pending",
+      "assigned_to": null,
+      "claimed_at": null,
+      "created_at": "2026-09-28T08:00:00.000Z",
+      "updated_at": "2026-09-28T08:00:00.000Z",
+      "version": 1
+    },
+    {
+      "id": "c-002",
+      "case_number": "CAS20260928002",
+      "policy_id": "p-002",
+      "status": "pending",
+      "assigned_to": null,
+      "claimed_at": null,
+      "created_at": "2026-09-28T08:05:00.000Z",
+      "updated_at": "2026-09-28T08:05:00.000Z",
+      "version": 1
+    },
+    {
+      "id": "c-003",
+      "case_number": "CAS20260927003",
+      "policy_id": "p-001",
+      "status": "surveying",
+      "assigned_to": "u-wangqiang",
+      "claimed_at": "2026-09-27T10:00:00.000Z",
+      "created_at": "2026-09-27T09:00:00.000Z",
+      "updated_at": "2026-09-27T10:30:00.000Z",
+      "version": 3
+    }
+  ],
+  "assessments": [
+    {
+      "id": "a-001",
+      "case_id": "c-003",
+      "damage_parts": [
+        {
+          "part": "前保险杠",
+          "amount": 2600
+        },
+        {
+          "part": "左前大灯",
+          "amount": 1800
+        }
+      ],
+      "estimated_total": 4400,
+      "assessed_amount": 4400,
+      "conclusion": "属于保险责任",
+      "policy_version": 1,
+      "valid": true,
+      "invalid_reason": null,
+      "recalculated": null,
+      "version": 1,
+      "history": [
+        {
+          "version": 1,
+          "data": {
+            "damage_parts": [
+              {
+                "part": "前保险杠",
+                "amount": 2600
+              },
+              {
+                "part": "左前大灯",
+                "amount": 1800
+              }
+            ],
+            "estimated_total": 4400,
+            "assessed_amount": 4400,
+            "conclusion": "属于保险责任"
+          },
+          "updated_at": "2026-09-27T10:30:00.000Z",
+          "source": "server"
+        }
+      ],
+      "created_at": "2026-09-27T10:30:00.000Z",
+      "updated_at": "2026-09-27T10:30:00.000Z"
+    }
+  ]
+}
